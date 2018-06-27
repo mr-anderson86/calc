@@ -92,63 +92,6 @@
                 </executions>
             </plugin>
 
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>rpm-maven-plugin</artifactId>
-                <version>2.2.0</version>
-
-                <executions>
-                    <execution>
-                        <id>generate-rpm</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>attached-rpm</goal>
-                        </goals>
-                        <configuration>
-                            <group>${project.groupId}</group>
-                            <name>taboola_calc</name>
-                            <version>${project.version}</version>
-                            <needarch>false</needarch>
-                            <autoRequires>false</autoRequires>
-                            <mappings>
-                                <mapping>
-                                    <directory>/calculator</directory>
-                                    <filemode>755</filemode>
-                                    <sources>
-                                        <source>
-                                            <location>${project.build.directory}/classes</location>
-                                        </source>
-                                        <source>
-                                            <location>${project.build.directory}/generated-sources</location>
-                                        </source>
-                                        <source>
-                                            <location>${project.build.directory}/lib</location>
-                                        </source>
-                                        <source>
-                                            <location>${project.build.directory}/maven-archiver</location>
-                                        </source>
-                                        <source>
-                                            <location>${project.build.directory}/maven-status</location>
-                                        </source>
-                                        <source>
-                                            <location>${project.build.directory}/surefire</location>
-                                        </source>
-                                        <source>
-                                            <location>${project.build.directory}/surefire-reports</location>
-                                        </source>
-                                        <source>
-                                            <location>${project.build.directory}/${project.artifactId}-${project.version}.jar</location>
-                                        </source>
-                                        <source>
-                                            <location>${project.build.directory}/test-classes</location>
-                                        </source>
-                                    </sources>
-                                </mapping>
-                            </mappings>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
 
         </plugins>
 
