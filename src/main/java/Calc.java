@@ -30,7 +30,7 @@ public class Calc {
 
             boolean first = true;
             StringBuilder sb = new StringBuilder();
-            sb.append("The results are: ");
+            sb.append("The results are this: ");
             sb.append("(");
             for (Map.Entry<String, Integer> result : results.entrySet()){
                 if (!first) sb.append(",");
