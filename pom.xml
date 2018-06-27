@@ -92,6 +92,49 @@
                 </executions>
             </plugin>
 
+			<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rpm-maven-plugin</artifactId>
+                <version>2.2.0</version>
+
+                <executions>
+                    <execution>
+                        <id>generate-rpm</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attached-rpm</goal>
+                        </goals>
+                        <configuration>
+                            <group>${project.groupId}</group>
+                            <name>taboola_calc</name>
+                            <version>${project.version}</version>
+                            <needarch>true</needarch>
+                            <autoRequires>false</autoRequires>
+                            <mappings>
+                                <mapping>
+                                    <directory>/opt/calculator/lib</directory>
+                                    <filemode>755</filemode>
+                                    <sources>
+                                        <source>
+                                            <location>${project.build.directory}/lib</location>
+                                        </source>
+                                    </sources>
+                                </mapping>
+                                <mapping>
+                                    <directory>/opt/calculator</directory>
+                                    <filemode>664</filemode>
+                                    <sources>
+                                        <source>
+                                            <location>${project.build.directory}/${project.artifactId}-${project.version}.jar</location>
+                                        </source>
+                                    </sources>
+                                </mapping>
+                            </mappings>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
 
         </plugins>
 
