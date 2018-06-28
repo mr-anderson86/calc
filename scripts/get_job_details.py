@@ -3,6 +3,7 @@
 import sys
 import json
 import urllib2
+import traceback
 
 #--------------------------------------------------------------------
 ##=Name         get_job_details.py
@@ -53,25 +54,18 @@ def getJsonFromJenkinsApi(jenkinsURL, jobName, buildNum):
         except urllib2.HTTPError, e:
                 print "URL Error: " + str(e.code)
                 print "      (job name [" + jobName + "] probably wrong)"
+                traceback.print_exc()
                 sys.exit(2)
 
         try:
                 jsonData = json.load( linkStream )
-                return jsonData
                 # DEBUG: print json generated from jenkins job api
                 # print json.dumps(jsonData, indent=1)
+                return jsonData
 
         except:
                 # print "Failed to parse json"
                 sys.exit(3)
-
-        # find in json the needed key - Jenkins Node and get its value
-        #if jsonData.has_key( "builtOn" ):
-        #        lastBuildServerName=jsonData["builtOn"]
-        #        return lastBuildServerName
-        #else:
-        # No such key in json...
-        #        sys.exit(5)
 
 
 def getKeyFromJenkinsApi(jsonData, keyName):
@@ -81,8 +75,9 @@ def getKeyFromJenkinsApi(jsonData, keyName):
         return lastBuildServerName
     else:
         #No such key in json...
-        print "Error: No such key " + keyName
-        sys.exit(5)
+        # print "Error: No such key " + keyName
+        # sys.exit(5)
+		return "NA"
 
 
 def getJobStartedBy(jsonData):
@@ -99,6 +94,8 @@ def getJobStartedBy(jsonData):
 
 
 def calculateDuration(durationInSec):
+    if durationInSec == "NA":
+        return "NA"
     # convert milliseconds to human readble time - hours minutes seconds
     millis = int(durationInSec)
     seconds = (millis / 1000) % 60
@@ -134,21 +131,21 @@ def main(argv):
         jobSlave = getKeyFromJenkinsApi(jobJsonData, "builtOn")
         jobBuildStatus = ""
         if jobJsonData["building"]:
-            jobBuildStatus = getKeyFromJenkinsApi(jobJsonData, "result")
-        else:
             jobBuildStatus = "building"
+        else:
+            jobBuildStatus = getKeyFromJenkinsApi(jobJsonData, "result")
 
         jobStartedBy = getJobStartedBy(jobJsonData)
         jobDuration = getKeyFromJenkinsApi(jobJsonData, "duration")
         jobDuration = str(jobDuration).replace('\r\n', '')
         jobDuration = calculateDuration(jobDuration)
 
-        sys.stdout.write("Job name: " + funcValues['jobName'])
-        sys.stdout.write("Build num: " + funcValues['buildNum'])
-        sys.stdout.write("Started by: " + jobStartedBy)
-        sys.stdout.write("Status:" + jobBuildStatus)
-        sys.stdout.write("Duration:" + jobDuration)
-        sys.stdout.write("Slave: " +  jobSlave)
+        print("Job name: " + funcValues['jobName'])
+        print("Build num: " + funcValues['buildNum'])
+        print("Started by: " + jobStartedBy)
+        print("Status:" + jobBuildStatus)
+        print("Duration:" + jobDuration)
+        print("Slave: " +  jobSlave)
         sys.exit(0)
 
 if __name__ == "__main__":
