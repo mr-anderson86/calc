@@ -3,6 +3,7 @@
 import sys
 import json
 import urllib2
+import csv
 import traceback
 
 #--------------------------------------------------------------------
@@ -77,7 +78,7 @@ def getKeyFromJenkinsApi(jsonData, keyName):
         #No such key in json...
         # print "Error: No such key " + keyName
         # sys.exit(5)
-		return "NA"
+        return "NA"
 
 
 def getJobStartedBy(jsonData):
@@ -148,6 +149,21 @@ def main(argv):
         print("Status:" + jobBuildStatus)
         print("Duration:" + jobDuration)
         print("Slave: " +  jobSlave)
+        
+        csv_file_name = funcValues['jobName'] + '_' + funcValues['buildNum'] + '.csv'
+        with open(csv_file_name,'wb') as csvfile:
+            fieldnames=['Field', 'Value']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerow({'Field': 'Job name:' , 'Value': funcValues['jobName']})
+            writer.writerow({'Field': 'Build num:' , 'Value': funcValues['buildNum']})
+            writer.writerow({'Field': 'Started by:' , 'Value': jobStartedBy})
+            writer.writerow({'Field': 'Status:' , 'Value': jobBuildStatus})
+            writer.writerow({'Field': 'Duration:' , 'Value': jobDuration})
+            writer.writerow({'Field': 'Slave:' , 'Value': jobSlave})
+
+        print("Generated CSV file at your location: "+ csv_file_name)
+
         sys.exit(0)
 
 if __name__ == "__main__":
