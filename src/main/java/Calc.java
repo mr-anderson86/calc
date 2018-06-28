@@ -23,11 +23,11 @@ public class Calc {
             if ( args.length>0 ) inputFile = args[0];
             else {
                 final Properties properties = new Properties();
-				InputStream in = Calc.class.getResourceAsStream("project.properties");
+                InputStream in = Calc.class.getResourceAsStream("project.properties");
                 properties.load(in);
-				in.close();
+                in.close();
                 String projectVersion = properties.getProperty("version");
-				System.out.println("Welcome to calculator version " + projectVersion);
+                System.out.println("Welcome to calculator version " + projectVersion);
                 System.out.println("Type the calculator expressions and press enter after each expression, press ctrl+D when done.");
             }
             InputStream is = System.in;
