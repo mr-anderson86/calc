@@ -89,6 +89,8 @@ def getJobStartedBy(jsonData):
                     return cause['userName'].replace(" ", "_")
                 elif cause.has_key('upstreamProject'):
                     return cause['upstreamProject']
+                elif cause.has_key('shortDescription'):
+                    return cause['shortDescription']
                 else:
                     return "NA"
 
