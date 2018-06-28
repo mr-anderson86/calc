@@ -14,6 +14,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
+import java.util.Properties;
 
 public class Calc {
     public static void main(String[] args) {
@@ -21,6 +22,12 @@ public class Calc {
             String inputFile = null;
             if ( args.length>0 ) inputFile = args[0];
             else {
+                final Properties properties = new Properties();
+				InputStream in = Calc.class.getResourceAsStream("project.properties");
+                properties.load(in);
+				in.close();
+                String projectVersion = properties.getProperty("version");
+				System.out.println("Welcome to calculator version " + projectVersion);
                 System.out.println("Type the calculator expressions and press enter after each expression, press ctrl+D when done.");
             }
             InputStream is = System.in;
@@ -30,7 +37,7 @@ public class Calc {
 
             boolean first = true;
             StringBuilder sb = new StringBuilder();
-            sb.append("The results are this: ");
+            sb.append("The results are: ");
             sb.append("(");
             for (Map.Entry<String, Integer> result : results.entrySet()){
                 if (!first) sb.append(",");
