@@ -1,4 +1,9 @@
-properties([pipelineTriggers([[$class: 'GitHubPushTrigger']])])
+properties([
+   pipelineTriggers([
+      [$class: "GitHubPushTrigger"]
+   ]),
+   disableConcurrentBuilds()
+])
 
 node('calc_build_node') {
    def mvnHome = env.M2_HOME
