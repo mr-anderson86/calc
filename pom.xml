@@ -8,6 +8,12 @@
     <artifactId>taboola_test</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <scm>
+        <connection>scm:git:https://github.com/mr-anderson86/calc.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/mr-anderson86/calc.git</developerConnection>
+        <url>https://github.com/mr-anderson86/calc</url>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>org.antlr</groupId>
