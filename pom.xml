@@ -4,13 +4,13 @@
 
     <groupId>taboola_test</groupId>
     <artifactId>taboola_test</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
 
     <scm>
         <connection>scm:git:https://github.com/mr-anderson86/calc.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/mr-anderson86/calc.git</developerConnection>
         <url>https://github.com/mr-anderson86/calc</url>
-      <tag>HEAD</tag>
+      <tag>taboola_test-1.1</tag>
   </scm>
 
     <dependencies>
