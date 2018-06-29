@@ -11,6 +11,10 @@ node('calc_build_node') {
       // Get some code from a GitHub repository
       git poll: true, url: 'https://github.com/mr-anderson86/calc.git'
    }
+   stage('Prepare release') {
+      //Prepare a release, updating the project versions.
+      sh "'${mvnHome}/bin/mvn' --batch-mode release:prepare"
+   }
    stage('Build and pack') {
       // Run the maven - compile, test, and pack to rpm
       sh "'${mvnHome}/bin/mvn' clean package"
