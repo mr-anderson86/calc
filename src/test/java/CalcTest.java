@@ -34,7 +34,7 @@ public class CalcTest {
 
         Map<String, Integer> result = Calc.parseCalc(is);
 
-        Assert.assertTrue(1 == result.get("x"));
+        Assert.assertTrue(2 == result.get("x"));
         Assert.assertTrue(2 == result.get("y"));
         Assert.assertTrue(1 == result.get("z"));
         Assert.assertTrue(2 == result.get("s"));
