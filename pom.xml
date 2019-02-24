@@ -2,14 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>taboola_test</groupId>
-    <artifactId>taboola_test</artifactId>
+    <groupId>simple_app</groupId>
+    <artifactId>calc</artifactId>
     <version>1.4-SNAPSHOT</version>
 
     <scm>
-        <connection>scm:git:https://github.com/mr-anderson86/calc.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/mr-anderson86/calc.git</developerConnection>
-        <url>https://github.com/mr-anderson86/calc</url>
+        <connection>scm:git:https://github.com/mr-anderson86/simple_maven_calc_app.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/mr-anderson86/simple_maven_calc_app.git</developerConnection>
+        <url>https://github.com/mr-anderson86/simple_maven_calc_app</url>
       <tag>HEAD</tag>
   </scm>
 
@@ -137,7 +137,7 @@
                         </goals>
                         <configuration>
                             <group>${project.groupId}</group>
-                            <name>taboola_calc</name>
+                            <name>${project.artifactId}</name>
                             <version>${project.version}</version>
                             <needarch>true</needarch>
                             <autoRequires>false</autoRequires>
