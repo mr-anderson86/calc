@@ -9,7 +9,7 @@ node('calc_build_node') {
    def mvnHome = env.M2_HOME
    stage('Pull changes') { // for display purposes
       // Get some code from a GitHub repository
-      git poll: true, url: 'https://github.com/mr-anderson86/calc.git'
+      checkout scm
    }
    stage('Prepare release') {
       //Prepare a release, updating the project versions.
