@@ -64,7 +64,7 @@ Packs the relevant files into rpm file.
 
 ## Other Ideas:
 * you can always install Nexus or Artifactory and deploy the jar/rpm files there.
-* Then you can run the install stage on a different host (node):pull the rpm from Nexus/Artifactory and install it there.
+* Then you can run the install stage on a different host (node): pull the rpm from Nexus/Artifactory and install it there.
 
 ### The end, enjoy :)
 
