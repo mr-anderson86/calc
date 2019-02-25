@@ -4,7 +4,9 @@
 
 The Purpose of this repository is to show more of the power of Maven.  
 This repository represents a Jenkins pipeline, which runs a whole CI-CD process, which builds a very simple calculator.  
-The final output is the calculator application, which all you need to do is login to the machine, and run command "calc", and you're in the calculator app.
+The final output is the calculator application, which all you need to do is login to the machine, and run command "calc", and you're in the calculator app. 
+
+Screenshot of final result can be found in the screenshots directory :-)
 
 Meaning:
 1. The pipeline first builds the application using Maven.
