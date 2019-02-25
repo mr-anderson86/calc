@@ -21,6 +21,6 @@ node('calc_build_node') {
    }
    stage('Install') {
       // Install the rpm
-      sh "sudo rpm -Uvh --force ${WORKSPACE}/target/rpm/taboola_calc/RPMS/x86_64/taboola_calc*.rpm"
+      sh "sudo rpm -Uvh --force ${WORKSPACE}/target/rpm/calc/RPMS/x86_64/taboola_calc*.rpm"
    }
 }
