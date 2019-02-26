@@ -7,14 +7,13 @@ properties([
 
 node('calc_build_node') {
    //def mvnHome = env.M2_HOME
-   env
+   sh 'env'
    stage('Pull changes') { // for display purposes
       // Get some code from a GitHub repository
       checkout scm
    }
    stage('Prepare release') {
       //Prepare a release, updating the project versions.
-      def tag
       sh "mvn clean --batch-mode release:prepare"
    }
    stage('Build and pack') {
