@@ -4,11 +4,11 @@
 
     <groupId>simple_app</groupId>
     <artifactId>calc</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>1.5-SNAPSHOT</version>
 
     <scm>
         <connection>scm:git:https://github.com/mr-anderson86/simple_maven_calc_app.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/mr-anderson86/simple_maven_calc_app.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/mr-anderson86/simple_maven_calc_app.git</developerConnection>
         <url>https://github.com/mr-anderson86/simple_maven_calc_app</url>
       <tag>HEAD</tag>
   </scm>
