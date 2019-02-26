@@ -25,12 +25,11 @@ The repository holds:
 1. Jenkins of course, with relevant node configured and running.
 2. The builder machine needs git, JDK 1.8, Maven (3.3.9 is good).  
 (Tested only on RedHat server, but it all might work also on ubuntu, CentOS and others)
-3. Not that in the pom.xml, the scm details contains this repo address as "https", so you might want to store your user & password locally on the build server:
+3. Not that in the pom.xml, the scm details contains this repo address as "https", so you might want to store your user & password locally on the build server:  
 ```
 git config --global credential.helper store
 run any git command which will ask for your username and passwrod
-```  
-(Or edit the pom.xml scm details to have ssh, and add your public key in the deploy keys in your repo)
+```
 4. Add \<your jenkins url\>/github-webhook/ into your repository Webhooks.  
 (Go to Settings -> Webhooks -> and add there your webhook).
 
