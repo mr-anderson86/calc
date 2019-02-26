@@ -7,6 +7,7 @@ properties([
 
 node('calc_build_node') {
    //def mvnHome = env.M2_HOME
+   env
    stage('Pull changes') { // for display purposes
       // Get some code from a GitHub repository
       checkout scm
