@@ -14,11 +14,12 @@ node('calc_build_node') {
    }
    stage('Prepare release') {
       //Prepare a release, updating the project versions.
-      sh "mvn --batch-mode release:prepare"
+      def tag
+      sh "mvn clean --batch-mode release:prepare"
    }
    stage('Build and pack') {
       // Run the maven - compile, test, and pack to rpm
-      sh "mvn clean package"
+      sh "mvn versions:set -DremoveSnapshot package"
    }
    stage('Install') {
       // Install the rpm
