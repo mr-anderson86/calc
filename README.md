@@ -30,6 +30,7 @@ The repository holds:
 git config --global credential.helper store  
 run any git command which will ask for your username and passwrod
 ```
+3. Or instead, edit the pom.xml scm details to have ssh, and add your public key in the deploy keys in your repo
 4. Add \<your jenkins url\>/github-webhook/ into your repository Webhooks.  
 (Go to Settings -> Webhooks -> and add there your webhook).
 
