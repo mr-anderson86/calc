@@ -6,14 +6,14 @@ properties([
 ])
 
 node('calc_build_node') {
-   def mvnHome = env.M2_HOME
+   //def mvnHome = env.M2_HOME
    stage('Pull changes') { // for display purposes
       // Get some code from a GitHub repository
       checkout scm
    }
    stage('Prepare release') {
       //Prepare a release, updating the project versions.
-      sh "'${mvnHome}/bin/mvn' --batch-mode release:prepare"
+      sh "'mvn' --batch-mode release:prepare"
    }
    stage('Build and pack') {
       // Run the maven - compile, test, and pack to rpm
